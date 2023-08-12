@@ -73,3 +73,41 @@ public class Ex2 {
 	}
 
 }
+-----------------------------------
+package novoJava.Proj;
+
+import java.util.Scanner;
+
+public class Ex2 {
+
+	public static void main(String[] args) {
+	    Scanner scan = new Scanner(System.in);
+        double delta;
+        int cont = 0;
+        for(cont=0;cont<=3;cont++){
+            System.out.print("A: ");
+            double a = scan.nextDouble();
+            System.out.print("B: ");
+            double b = scan.nextDouble();
+            System.out.print("C: ");
+            double c = scan.nextDouble();
+
+            delta = (b*b) - 4*a*c; 
+        
+            delta = Math.sqrt(delta);
+            double x1 = (-b + delta)/(2*a);
+            double x2 = (-b - delta)/(2*a);
+
+        
+            if(delta>0){
+                System.out.println("Delta: "+  delta);
+                System.out.println("X1: "+  x1);
+                System.out.println("X2: "+  x2);
+            }else{
+                System.out.println("Não há raízes!");
+            }
+        }
+        scan.close();
+	}
+
+}
