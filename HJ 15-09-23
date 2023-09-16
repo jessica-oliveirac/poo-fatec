@@ -1,0 +1,108 @@
+DDD - Domain Driven Design
+Classe de domínio rica( aquela que controla todo o seu estado) e anêmica(pojo atributo)
+- recebe as regras para aplicar
+
+Sistema de arquivos(s3)
+arquivos
+- no disco virtual guarda só o caminho
+
+bread crumb
+
+JavaScript
+self:baseada em protótipos, não em classes
+acúcar sintático
+Não há sobrecarga de métodos(vários métodos construtores
+Depende de onde está usando ele e não onde vc está(this)
+undefined(valor padrão das variáveis) - qualquer
+operador funcional(reduce)
+=>tal que
+splice de Array
+
+nunca se pode retornar uma referência para a
+nunca retorna array, pois ele alt
+
+return: ter uma referência
+
+aboutblank
+locofy(ia) - figma
+componentização
+flutterflow
+integrações, validações
+llm - large language models
+
+bard
+
+IA: api AMAZON, GOOGLE
+
+
+LAYOUT: GRID, FLEXBOX, DIV
+BOOTSTRAP: BIBLIOTECA CSS PARA ESTILIZAÇÃO
+UNSHIFT: ADICIONAR UMA COISA NO INÍCIO DO ARRAY
+PRIOMPT: FUNÇÃO DO JAVASCRIPT QUE EXIBE UMA CAIXINHA DE MENSAGEM
+PADRÃO PRIMPT RETORNA UMA STRING
+MONKEYPATCH: ALTERAR O OBJETO
+- PREJUDICA, DEIXA LENTO O PROGRAMA NO TEMPO DE EXECUÇÃO
+SOME: VER SE ALGUM/QUALQUER ELMENTO ATENDE AO CRITÉRIOS
+
+LOCOFY
+
+find(ia_
+
+PROTECTED: PRIVATE COM HERANÇA
+IMPLEMENTS(TRACEJADO UML
+
+CLASSE BASE 
+CLASSE DERIVADA
+
+
+
+FORMA DE REUSO DE CÓDIGO
+HERANÇA EM 1ª INSTÂNCIA
+
+2 CLASSES TEREM COISAS EM COMUM NÇAO SIGNIFICA QUE PODE FAZER HERANÇA
+
+ERRO: HERANÇA SÓ POR REUSO
+QUALQUER MUDANÇA FEITA NO PAI VAI FAZER SENTIDO NO FILHO(O FILHO VAI HERDAR)
+
+
+aCOPLAMENTO
+TYPESCRIPT(UNION)
+Injeção de dependência(forma de reduzir o acoplamento)
+
+Centralizar o código
+herança x composição
+Reduzir o acoplamento: fazer com que os códigos saibam o mínimo sobre os outros
+
+
+viacep
+xml ou json
+
+Polimorfismo: extremo de redução de acoplamento
+-> Com herança
+ItemSistemaArquivo item = new ItemSistemaArquivo()
+ItemSistemaArquivo item = new Pasta()
+ItemSistemaArquivo item = new Arquivo()
+
+-> Sem herança
+SystemSistema
+
+
+Acrescentar coisas novas sem mudar o que existia
+
+
+Numa referência de uma superclasse é possível passar a herança de uma subclasse
+
+
+A classe mãe é abstrata quando não é possível implementála, só os gilhos
+
+
+abstrato no método
+
+
+método abstrato
+- contrato
+- origação
+classe abstrata tem que ter um método abstrato, pois ela mesma não pode implementar
+
+
+Interface: polimrofismo sem perda da herança
