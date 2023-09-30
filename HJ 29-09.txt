@@ -1,0 +1,94 @@
+classe: singular
+enum: plural
+
+enum
+- só pode ter um construtor
+- método, gravar int, atribuir null
+Autoboxing:substitui a escrita no tempo, substitui pelo valor, cria código
+Integer i = 1;
+Double f = 1.5;
+JavaScript(utiliza String)
+obrigar a passar alguma coisa
+defining(constante)
+null: é para ponteiro, objeto
+wrapper: conversão automática
+
+
+Formulário(widget, gráfico)
+Checkbox
+combobox
+método que recebe um component
+
+
+S
+O -> Open Closed Principle (OCP)
+Aberto para extensão, fechado para modificação
+- adicionar sem ter que mudar um código
+L -> Liscov Substitition Principle
+- herança
+- tudo que se aplica a  subclasse, tem que valer na superclasse
+
+I-> Interface Segregation
+- Jeito certo de definir uma interface
+-tem que ser o mais específica possível
+- criar interfaces menores com coisas específicas ao invés de criar interfaces gigantes com métodos diferentes
+- todas as invariantes devem ser preservadas
+- todas as invariantes da superclasse devem ser preservadas na subclasse
+D
+
+Classe invariante: uma coisa que sempre sempre que é válida para aquele tipo
+obrigatória
+------------------------
+Acoplamento forte: uma classe sabe muito da outra, uma é influenciada
+herança causa acoplamento
+Não é recomendado colocar default em interface
+
+Não é possível 
+Encaixar a classe em várias hierquias de polimorfismo sem usar a herança múltipla
+
+INTERFACE
+método abstrato
+-tira os atributos
+- tira os métodos inplementados
+classe abstrata que não pode ter um atributo e nem um método concreto
+tem que ter só um método abstrato que implementa
+melhor 
+possibilidade de cumprir vários contratos
+
+-> Classe Abstrata
+Bussola extends ComponenteGrafico
+-> Interface
+Bussola implements ComponenteGrafico, Serializable
+
+implementar as classes é obrigar que tudo que tenha 
+
+serializar(transformar em uma sequência de bytes)
+Serializable: permite serializar, é só uma semântica
+
+Condição para fazer um foreach
+Foreach fax->Chama o iterator da classe Iterable do Java(ladodireito(
+Verifica se implementa Iterablem e obriga retornar um Iterator
+métodos de
+
+Se é do tipo do iterável pode usar do foreach
+
+usar da interface para
+
+https://www.youtube.com/watch?v=hAhTcK09moE
+
+Flutter:Framework para aplicações multiplataforma
+dart
+
+mensageria kafka
+jenkins: plataforma de implantação contínua
+
+pascalcase, snakecase, camelcase
+convenção para nomear
+
+Fazer referência só a interface, não a classe
+Depender de abstrações e não de coisas concretas
+Despender 
+- programe em interfaces
+se a classe nao for abstrata ela é obrigada a iplementar o método
+
+define(c) final(java)
