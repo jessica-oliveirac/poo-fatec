@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Disco virtual</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+</head>
+<body>
+
+    <div class="container">
+        <div class="row mt-4">
+            <div class="col-12" id="caminhoPastaAtual"></div>
+        </div>
+        <div class="row mt-2">
+            <div class="col-12">
+                <button class="btn btn-primary" id="botaoNovaPasta">Nova pasta</button>
+                <button class="btn btn-secondary" id="botaoNovoArquivo">Novo arquivo</button>
+            </div>
+        </div>
+        <div class="row mt-2" id="conteudoPastaAtual">
+        </div>
+    </div>
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js"></script>
+    <script src="./disco-virtual.js"></script>
+    <script>
+        const conteudoPastaAtual = document.getElementById("conteudoPastaAtual")
+        const caminhoPastaAtual = document.getElementById("caminhoPastaAtual")
+        
+        document.getElementById("botaoNovaPasta").addEventListener('click', novaPasta)
+        document.getElementById("botaoNovoArquivo").addEventListener('click', novoArquivo)
+
+        let pastaAtual = new Pasta("Disco Virtual")
+        pastaAtual.novaSubPasta("Windows")
+        pastaAtual.novaSubPasta("Arquivos de programas")
+        pastaAtual.novoArquivo("system.com")
+
+        let caminhoDesdeRaiz
+
+        function novaPasta() {
+            const nomeNovaPasta = prompt("Informe o nome da nova pasta")
+            if(!nomeNovaPasta) {
+                alert("O nome é obrigatório")
+                return
+            }
+
+            pastaAtual = pastaAtual.novaSubPasta(nomeNovaPasta)
+            desenharPasta(pastaAtual)
+        }
+
+        function novoArquivo() {
+            const nomeNovoArquivo = prompt("Informe o nome do novo arquivo")
+            if(!nomeNovoArquivo) {
+                alert("O nome é obrigatório")
+                return
+            }
+            const tamanhoNovoArquivo = prompt("Informe o tamanho do novo arquivo")
+            if(!tamanhoNovoArquivo) {
+                alert("O tamanho é obrigatório")
+                return
+            }
+
+            pastaAtual.novoArquivo(nomeNovoArquivo, parseFloat(tamanhoNovoArquivo))
+            desenharPasta(pastaAtual)
+        }
+
+        function abrirPasta(nome) {
+            const subPasta = pastaAtual.getSubPastaPorNome(nome)
+            if(!subPasta) {
+                alert('Não existe uma subpasta com este nome')
+            }
+
+            pastaAtual = subPasta
+            desenharPasta(pastaAtual)
+        }
+
+        function abrirPastaParente(indice) {
+            pastaAtual = caminhoDesdeRaiz[indice]
+            desenharPasta(pastaAtual)
+        }
+
+        function desenharPasta(pasta) {
+            caminhoPastaAtual.innerHTML = ''
+            let i = 0
+            for(const pastaCaminho of pasta.CaminhoDesdeRaiz) {
+                caminhoPastaAtual.innerHTML += `<span onclick="abrirPastaParente(${i++})">${pastaCaminho.Nome} (${pastaCaminho.Tamanho} KB)</span> >`
+            }
+
+            conteudoPastaAtual.innerHTML = ''
+
+            for(const subPasta of pasta.SubPastas) {
+                conteudoPastaAtual.innerHTML += `
+                <div class="col-3 d-flex flex-column align-items-center">
+                    <a href="javascript:void(0)" onclick="abrirPasta('${subPasta.Nome}')">
+                        <img src="./pasta.png" alt="Uma imagem de uma pasta" />
+                    </a>
+                    <div>${subPasta.Nome}</div>
+                    <div>${subPasta.Tamanho} KB</div>
+                </div>
+                `
+            }
+
+            for(const arquivo of pasta.Arquivos) {
+                conteudoPastaAtual.innerHTML += `
+                <div class="col-3 d-flex flex-column align-items-center">
+                    <img src="./arquivo.png" alt="Uma imagem de um arquivo" />
+                    <div>${arquivo.Nome}</div>
+                    <div>${arquivo.Tamanho} KB</div>
+                </div>
+                `
+            }
+
+            caminhoDesdeRaiz = pastaAtual.CaminhoDesdeRaiz
+        }
+
+        desenharPasta(pastaAtual)
+    </script>
+
+</body>
+</html>
